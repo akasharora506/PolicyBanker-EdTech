@@ -1,0 +1,30 @@
+.hover-buttons{
+    display: none;
+    .take-exam{
+        background-color: #1976d2;
+        color: #fff;
+    }
+    .download-certificate{
+        background-color: #fff;
+        color: #1976d2;
+    }
+    
+}
+.card-media{
+    height: 140px;
+}
+.course-about:hover {
+    .hover-buttons{
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        width: calc(100% - 10px);
+        padding: 5px;
+    }
+    .card-media{
+        opacity: 0.2;
+    }
+}
+
+

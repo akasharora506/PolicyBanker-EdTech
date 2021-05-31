@@ -1,0 +1,33 @@
+.title-bar{
+    background-color: #323639;
+    padding: 20px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    .about-bar{
+        display: flex;
+        align-items: center;
+        .titlebar-text{
+            font-size: 1.5rem;
+            .titlebar-head{
+                margin: 16px 0px;
+            }
+            .titlebar-details{
+                font-size: 0.75rem;
+                opacity: 0.6;
+                margin: 0;
+            }
+        }
+        .book-logo{
+            height: 60px;
+            width: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 5px;
+            margin-right: 16px;
+        } 
+    }
+    .navigation-bar{
+        padding-bottom: 10px;
+    } 
+}
+

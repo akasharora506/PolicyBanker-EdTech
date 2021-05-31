@@ -1,0 +1,21 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import { Avatar } from '@material-ui/core';
+import { logo } from '../../assets';
+import './index.scss';
+export default function ButtonAppBar(props) {
+    return (
+        <div className="header-root">
+            <AppBar position="static" style={{ background: '#FFF' }}>
+                <Toolbar className="header-toolbar">
+                    <img src={logo}></img>
+                </Toolbar>
+            </AppBar>
+        </div>
+    );
+}
