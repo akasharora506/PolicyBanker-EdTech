@@ -25,6 +25,15 @@
             padding: 5px;
             margin-right: 16px;
         } 
+        .button-download{
+            display: flex;
+            flex-grow: 1;
+            justify-content: flex-end;
+        .download-certificate{
+            background-color: #1976d2;
+            color: #fff;
+        }
+    }
     }
     .navigation-bar{
         padding-bottom: 10px;

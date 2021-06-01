@@ -1,21 +1,29 @@
 import React from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon';
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import './index.scss';
-import { courseIcon } from '../../assets';
-export default function Title() {
+import { TITLES } from '../../constant';
+export default function Title(props) {
+    const { title, subTitle, displayIcon } = props;
     return (
         <div className="title-bar">
-            <div className="navigation-bar">
-                <HomeIcon fontSize="small" />
-            </div>
+            {title !== TITLES['home'] && <div className="navigation-bar">
+                <Link to="/" style={{
+                    color: '#fff'
+                }}>
+                    <HomeIcon fontSize="small" />
+                </Link>
+            </div>}
             <div className="about-bar">
-                <img className="book-logo" src={courseIcon}></img>
+                <img className="book-logo" src={displayIcon} alt={displayIcon}></img>
                 <div className="titlebar-text">
-                    <p className="titlebar-head">All Courses</p>
-                    <p className="titlebar-details">Lorem Ipsum is simply dummy text of the
-                    printing and typesetting industry.
-                        </p>
+                    <p className="titlebar-head">{title}</p>
+                    <p className="titlebar-details">{subTitle}</p>
                 </div>
+                {title !== TITLES['home'] && <div className="button-download">
+                    <Button size="large" className="download-certificate">Download Certificate</Button>
+                </div>}
             </div>
         </div>
     )

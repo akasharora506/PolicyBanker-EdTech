@@ -25,10 +25,10 @@ export default function MediaCard(props) {
         <Card className={classes.root}>
             <CardActionArea className="course-about">
                 <div className="hover-buttons">
-                    <Button size="small" className="take-exam">
+                    <Button size="small" className="take-exam" onClick={(e) => e.preventDefault()}>
                         Take Exam
                     </Button>
-                    <Button size="small" className="download-certificate">
+                    <Button size="small" className="download-certificate" onClick={(e) => e.preventDefault()}>
                         Download Certificate
                 </Button>
                 </div>

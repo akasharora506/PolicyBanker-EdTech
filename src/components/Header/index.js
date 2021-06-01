@@ -1,11 +1,7 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import { Avatar } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import { logo } from '../../assets';
 import './index.scss';
 export default function ButtonAppBar(props) {
@@ -13,7 +9,11 @@ export default function ButtonAppBar(props) {
         <div className="header-root">
             <AppBar position="static" style={{ background: '#FFF' }}>
                 <Toolbar className="header-toolbar">
-                    <img src={logo}></img>
+                    <Link to="/" style={{
+                        color: 'transparent'
+                    }}>
+                        <img src={logo} alt={logo}></img>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </div>
