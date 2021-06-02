@@ -19,14 +19,14 @@ export default function Home(props) {
                     <Link to="/general" style={{
                         textDecoration: 'none'
                     }}>
-                        <Course courseName="General Insurance Certification" imageAddress={images[0]} />
+                        <Course courseType="general" courseName="General Insurance Certification" imageAddress={images[0]} />
                     </Link>
                 }
                 {(courseId === 2 || courseId === 3) &&
                     <Link to="/life" style={{
                         textDecoration: 'none'
                     }}>
-                        <Course courseName="Life Insurance Certification" imageAddress={images[1]} />
+                        <Course courseType="life" courseName="Life Insurance Certification" imageAddress={images[1]} />
                     </Link>
                 }
             </div>

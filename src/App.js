@@ -6,8 +6,10 @@ import { TITLES, SUBTITLES, PAGE_ICON } from './constant';
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Switch>
+      <div className="App" style={{
+        height: '100vh'
+      }}>
+        <Switch className="switch">
           <Route exact path="/">
             <Home title={TITLES['home']} subTitle={SUBTITLES['home']} displayIcon={PAGE_ICON['home']} />
           </Route>
@@ -16,6 +18,14 @@ function App() {
           </Route>
           <Route exact path="/life">
             <Module title={TITLES['life']} subTitle={SUBTITLES['life']} displayIcon={PAGE_ICON['life']} />
+          </Route>
+          <Route exact path="/general/exam">
+            <div>
+              General Insurance Exam
+            </div>
+          </Route>
+          <Route exact path="/life/exam">
+            Life Insurance Exam
           </Route>
         </Switch>
       </div>

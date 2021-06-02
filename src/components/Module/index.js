@@ -4,8 +4,11 @@ import Title from '../Title';
 import ModuleContent from '../ModuleContent';
 import './index.scss';
 import { randomPdf } from '../../assets';
+import Foot from '../Foot';
+import { useHistory, useLocation } from 'react-router-dom';
 export default function Module(props) {
-
+    const history = useHistory();
+    const location = useLocation();
     const DefaultMaterial = [{
         displayEnabled: true,
         completeEnabled: false,
@@ -56,8 +59,29 @@ export default function Module(props) {
     const handleComplete = (courseId) => {
         const newModuleMaterial = moduleMaterial;
         newModuleMaterial[courseId].completed = true;
+        setExpanded(false);
         setModuleMaterial([...newModuleMaterial]);
-    }
+    };
+
+    const handleTakeExam = () => {
+        const { pathname } = location;
+        history.push(`${pathname}/exam`);
+    };
+    const examDisabled = () => {
+        let flag = false;
+        moduleMaterial.forEach((item) => {
+            if (item.completed === false)
+                flag = true;
+        });
+        return flag;
+    };
+    const buttons = [{
+        name: 'Take Exam',
+        disabled: examDisabled(),
+        onClick: handleTakeExam,
+        class: 'take-exam'
+    }];
+
     return (
         <div>
             <Header />
@@ -84,6 +108,7 @@ export default function Module(props) {
                     ))}
                 </div>
             </div>
+            <Foot buttons={buttons} />
         </div>
     )
 }

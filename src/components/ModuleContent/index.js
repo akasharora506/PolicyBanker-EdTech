@@ -4,7 +4,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { AccordionActions, Button, Divider } from '@material-ui/core';
+import { AccordionActions, Avatar, Button, Divider } from '@material-ui/core';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import Timer from '../Timer';
 import './index.scss';
@@ -27,7 +27,11 @@ export default function ModuleContent(props) {
                 id="panel1bh-header"
                 className="accordian-summary"
             >
-                {completed && <CheckCircleOutlineIcon className="completed-icon" />}
+                {completed ? <CheckCircleOutlineIcon className="completed-icon" />
+                    : <Avatar className="number-icon">
+                        {courseId + 1}
+                    </Avatar>
+                }
                 <Typography className="accordian-heading">{courseName}</Typography>
                 <Typography className="accordian-secondary-heading">{courseSummary}</Typography>
                 <Timer

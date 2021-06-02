@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -8,24 +7,18 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import './index.scss';
-const useStyles = makeStyles({
-    root: {
-        margin: 20,
-        height: '100%',
-    },
-    courseOverview: {
-        justifyContent: 'space-between'
-    },
-});
-
+import { useHistory } from 'react-router-dom';
 export default function MediaCard(props) {
-    const classes = useStyles();
-    const { courseName, imageAddress, moduleCount = 5 } = props;
+    const { courseName, imageAddress, moduleCount = 5, courseType } = props;
+    const history = useHistory();
     return (
-        <Card className={classes.root}>
+        <Card className="course-card">
             <CardActionArea className="course-about">
                 <div className="hover-buttons">
-                    <Button size="small" className="take-exam" onClick={(e) => e.preventDefault()}>
+                    <Button size="small" className="take-exam" onClick={(e) => {
+                        e.preventDefault()
+                        history.push(`/${courseType}/exam`);
+                    }}>
                         Take Exam
                     </Button>
                     <Button size="small" className="download-certificate" onClick={(e) => e.preventDefault()}>
@@ -42,7 +35,7 @@ export default function MediaCard(props) {
                     </Typography>
                 </CardContent>
             </CardActionArea>
-            <CardActions className={classes.courseOverview}>
+            <CardActions className="course-overview">
                 <Button size="small" color="#fff">
                     {`${moduleCount} modules`}
                 </Button>
