@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './index.scss';
 import { TITLES } from '../../constant';
 export default function Title(props) {
-    const { title, subTitle, displayIcon } = props;
+    const { title, subTitle, displayIcon, showDownload } = props;
     return (
         <div className="title-bar">
             {title !== TITLES['home'] && <div className="navigation-bar">
@@ -21,7 +21,7 @@ export default function Title(props) {
                     <p className="titlebar-head">{title}</p>
                     <p className="titlebar-details">{subTitle}</p>
                 </div>
-                {title !== TITLES['home'] && <div className="button-download">
+                {showDownload && <div className="button-download">
                     <Button size="large" className="download-certificate">Download Certificate</Button>
                 </div>}
             </div>
@@ -35,3 +35,7 @@ function HomeIcon(props) {
         </SvgIcon>
     );
 }
+
+Title.defaultProps = {
+    showDownload: false
+};

@@ -2,7 +2,9 @@ import { courseIcon, openCourseIcon, examIcon } from './assets';
 const TITLES = {
     'home': 'All Courses',
     'general': 'General Insurance Certification',
-    'life': 'Life Insurance Certification'
+    'life': 'Life Insurance Certification',
+    'generalexam': 'Exam - General Insurance Certification',
+    'lifeexam': 'Exam - Life Insurance Certification'
 };
 
 const SUBTITLES = {

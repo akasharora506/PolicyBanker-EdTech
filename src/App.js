@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Exam from './components/Exam';
 import Home from './components/Home';
 import Module from './components/Module';
 import { TITLES, SUBTITLES, PAGE_ICON } from './constant';
@@ -14,18 +15,16 @@ function App() {
             <Home title={TITLES['home']} subTitle={SUBTITLES['home']} displayIcon={PAGE_ICON['home']} />
           </Route>
           <Route exact path="/general">
-            <Module title={TITLES['general']} subTitle={SUBTITLES['general']} displayIcon={PAGE_ICON['general']} />
+            <Module title={TITLES['general']} subTitle={SUBTITLES['general']} displayIcon={PAGE_ICON['general']} showDownload={true} />
           </Route>
           <Route exact path="/life">
             <Module title={TITLES['life']} subTitle={SUBTITLES['life']} displayIcon={PAGE_ICON['life']} />
           </Route>
           <Route exact path="/general/exam">
-            <div>
-              General Insurance Exam
-            </div>
+            <Exam examType="general" />
           </Route>
           <Route exact path="/life/exam">
-            Life Insurance Exam
+            <Exam examType="life" />
           </Route>
         </Switch>
       </div>

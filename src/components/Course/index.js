@@ -16,14 +16,15 @@ export default function MediaCard(props) {
             <CardActionArea className="course-about">
                 <div className="hover-buttons">
                     <Button size="small" className="take-exam" onClick={(e) => {
-                        e.preventDefault()
+                        e.preventDefault();
+                        e.stopPropagation();
                         history.push(`/${courseType}/exam`);
                     }}>
                         Take Exam
                     </Button>
                     <Button size="small" className="download-certificate" onClick={(e) => e.preventDefault()}>
                         Download Certificate
-                </Button>
+                    </Button>
                 </div>
                 <CardMedia
                     className="card-media"
@@ -36,10 +37,10 @@ export default function MediaCard(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions className="course-overview">
-                <Button size="small" color="#fff">
+                <Button size="small" color="default">
                     {`${moduleCount} modules`}
                 </Button>
-                <Button size="small" color='#fff'>
+                <Button size="small" color='default'>
                     Certificate
                 </Button>
             </CardActions>

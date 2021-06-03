@@ -1,0 +1,19 @@
+.accordian-summary{
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+
+    .accordian-heading{
+            font-size: 15px;
+            flex-basis: 33.33%;
+            flex-shrink: 0;
+            margin-left: 16px;
+    }
+    .number-icon{
+        border-radius: 12px;
+        width: 1.5em;
+        height: 1.5em;
+        padding: 2px;
+        font-size: 1rem;
+    }
+}
