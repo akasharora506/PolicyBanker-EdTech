@@ -25,12 +25,13 @@ export default function Question(props) {
             </AccordionSummary>
             <AccordionDetails>
                 <FormControl component="fieldset">
-                    <RadioGroup aria-label="gender" name="gender1" value={selectedAnswer} onChange={(e) => handleSelectAnswer(e, qid)}>
+                    <RadioGroup aria-label="gender" name="gender1" value={selectedAnswer === 0 ? '' : options[selectedAnswer - 1]} onChange={(e) => handleSelectAnswer(e, qid)}>
                         {options.map((item) =>
                             <FormControlLabel
                                 value={item}
                                 control={<Radio />}
                                 label={item}
+                                key={item}
                             />
                         )}
                     </RadioGroup>

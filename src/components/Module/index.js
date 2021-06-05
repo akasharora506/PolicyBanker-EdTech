@@ -1,46 +1,16 @@
 import React, { useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import Header from '../Header';
 import Title from '../Title';
 import ModuleContent from '../ModuleContent';
 import './index.scss';
-import { randomPdf } from '../../assets';
 import Foot from '../Foot';
-import { useHistory, useLocation } from 'react-router-dom';
+import { lifeMaterial, generalMaterial } from './material';
+
 export default function Module(props) {
     const history = useHistory();
     const location = useLocation();
-    const DefaultMaterial = [{
-        displayEnabled: true,
-        completeEnabled: false,
-        timeLeft: 3,
-        content: randomPdf,
-        name: 'Course 1',
-        summary: 'Course Details 1',
-        panelName: 'panel1',
-        completed: false,
-    },
-    {
-        displayEnabled: false,
-        completeEnabled: false,
-        timeLeft: 3,
-        content: randomPdf,
-        name: 'Course 2',
-        summary: 'Course Details 2',
-        panelName: 'panel2',
-        completed: false,
-    },
-    {
-        displayEnabled: false,
-        completeEnabled: false,
-        timeLeft: 3,
-        content: randomPdf,
-        name: 'Course 3',
-        summary: 'Course Details 3',
-        panelName: 'panel3',
-        completed: false,
-    }
-    ];
-
+    const DefaultMaterial = props.examType === "general" ? [...generalMaterial] : [...lifeMaterial];
     const [expanded, setExpanded] = useState(false);
     const [moduleMaterial, setModuleMaterial] = useState(DefaultMaterial);
 

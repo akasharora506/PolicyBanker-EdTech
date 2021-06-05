@@ -11,8 +11,7 @@ import './index.scss';
 
 export default function ModuleContent(props) {
 
-    const { panelName, expanded, handleChange,
-        courseName, courseContent, courseSummary,
+    const { panelName, expanded, handleChange, courseContent,
         completeEnabled, displayEnabled, handleExpire, courseId,
         timeLeft, completed, handleComplete } = props;
 
@@ -32,8 +31,7 @@ export default function ModuleContent(props) {
                         {courseId + 1}
                     </Avatar>
                 }
-                <Typography className="accordian-heading">{courseName}</Typography>
-                <Typography className="accordian-secondary-heading">{courseSummary}</Typography>
+                <Typography className="accordian-heading">{`Chapter ${courseId + 1}`}</Typography>
                 <Timer
                     expiryTimestamp={time}
                     expanded={expanded}

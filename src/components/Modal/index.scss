@@ -1,0 +1,63 @@
+.modal-root{
+    padding-top: 100px;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    .modal-paper{
+        padding: 16px 32px 24px;
+        box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 5px 8px 0px rgb(0 0 0 / 14%), 0px 1px 14px 0px rgb(0 0 0 / 12%);
+        background-color: #fff;
+        opacity: 1;
+        transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border-radius: 15px;
+        .modal-body{
+            .modal-text{
+                display: block;
+                font-size: 16px;
+                font-weight: normal;
+                margin-top: 10px;
+                color: #666;
+                text-align: center;
+            }
+            .modal-buttons{
+                display: flex;
+                justify-content: center;
+                .single-button{
+                    display: flex;
+                    border: 1px solid #ddd;
+                    border-radius: .25rem;
+                    font-weight: 500;
+                    padding: 12px 16px;
+                    min-width: 120px;
+                    margin-right: 16px;
+                    .button-icon{
+                        background-color: #ddd;
+                        border-radius: 16px;
+                        height: 32px;
+                        width: 32px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-right: 16px;
+                    }
+                    .single-button-text{
+                        display: flex;
+                        flex-direction: column;
+                        font-weight: 500;
+                        .result-text{
+                            color: #999;
+                        }
+                        .result-passed{
+                            color: #198754;
+                        }
+                        .result-failed{
+                            color: crimson;
+                        }
+                        .certificate{
+                            color: #0d6efd;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -15,10 +15,10 @@ function App() {
             <Home title={TITLES['home']} subTitle={SUBTITLES['home']} displayIcon={PAGE_ICON['home']} />
           </Route>
           <Route exact path="/general">
-            <Module title={TITLES['general']} subTitle={SUBTITLES['general']} displayIcon={PAGE_ICON['general']} showDownload={true} />
+            <Module title={TITLES['general']} subTitle={SUBTITLES['general']} displayIcon={PAGE_ICON['general']} showDownload={true} examType="general" />
           </Route>
           <Route exact path="/life">
-            <Module title={TITLES['life']} subTitle={SUBTITLES['life']} displayIcon={PAGE_ICON['life']} />
+            <Module title={TITLES['life']} subTitle={SUBTITLES['life']} displayIcon={PAGE_ICON['life']} examType="life" />
           </Route>
           <Route exact path="/general/exam">
             <Exam examType="general" />
