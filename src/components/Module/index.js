@@ -27,10 +27,10 @@ export default function Module(props) {
     };
 
     const handleComplete = (courseId) => {
-        const newModuleMaterial = moduleMaterial;
+        const newModuleMaterial = [...moduleMaterial];
         newModuleMaterial[courseId].completed = true;
         setExpanded(false);
-        setModuleMaterial([...newModuleMaterial]);
+        setModuleMaterial(newModuleMaterial);
     };
 
     const handleTakeExam = () => {

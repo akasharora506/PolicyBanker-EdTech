@@ -40,16 +40,16 @@ const lifeMaterial = [{
     content: life4,
     name: 'Course 4',
     summary: 'Course Details 4',
-    panelName: 'panel3',
+    panelName: 'panel4',
     completed: false,
 }, {
     displayEnabled: false,
     completeEnabled: false,
     timeLeft: 3 * 60 * 60,
     content: life5,
-    name: 'Course 3',
+    name: 'Course 5',
     summary: 'Course Details 5',
-    panelName: 'panel3',
+    panelName: 'panel5',
     completed: false,
 }
 ];
@@ -91,16 +91,16 @@ const generalMaterial = [{
     content: general4,
     name: 'Course 4',
     summary: 'Course Details 4',
-    panelName: 'panel3',
+    panelName: 'panel4',
     completed: false,
 }, {
     displayEnabled: false,
     completeEnabled: false,
     timeLeft: 3 * 60 * 60,
     content: general5,
-    name: 'Course 3',
+    name: 'Course 5',
     summary: 'Course Details 5',
-    panelName: 'panel3',
+    panelName: 'panel5',
     completed: false,
 }
 ];

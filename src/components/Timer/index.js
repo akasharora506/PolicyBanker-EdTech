@@ -20,6 +20,15 @@ export default function Timer(props) {
         // eslint-disable-next-line
     }, [expanded, panelName]);
 
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === 'visible') {
+            resume();
+        } else {
+            // update query
+            pause();
+        }
+    });
+
     return (
         <div style={{
             textAlign: 'end',
