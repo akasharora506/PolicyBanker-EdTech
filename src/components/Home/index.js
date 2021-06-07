@@ -9,7 +9,7 @@ export default function Home(props) {
         'http://www.thefinapolis.com/Portals/0/EasyDNNNews/4871/600600p1134EDNmainlife-insurance-min.jpg'
     ];
     //eslint-disable-next-line
-    const [courseId, setCourseId] = useState(3);
+    const [courseId, setCourseId] = useState(1);
     return (
         <div className="Homepage">
             <Header />
