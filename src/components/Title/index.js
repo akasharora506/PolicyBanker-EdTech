@@ -4,8 +4,21 @@ import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './index.scss';
 import { TITLES } from '../../constant';
+import { validateCertificate } from '../../services/validateCertificate';
+
 export default function Title(props) {
     const { title, displayIcon, showDownload } = props;
+
+    const download = () => {
+        debugger
+        validateCertificate('1','GI').then(data => {
+            if(data && data.status){
+                window.open('/general/certificate', "_blank");
+            }
+          }).catch((err) => {
+              console.log('Error occured : validation Failed')
+          });
+    };
     return (
         <div className="title-bar">
             {title !== TITLES['home'] && <div className="navigation-bar">
@@ -21,7 +34,7 @@ export default function Title(props) {
                     <p className="titlebar-head">{title}</p>
                 </div>
                 {showDownload && <div className="button-download">
-                    <Button size="large" className="download-certificate">Download Certificate</Button>
+                    <Button size="large" onClick={download} className="download-certificate">Download Certificate</Button>
                 </div>}
             </div>
         </div>

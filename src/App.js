@@ -4,6 +4,7 @@ import Exam from './components/Exam';
 import Home from './components/Home';
 import Module from './components/Module';
 import { TITLES, SUBTITLES, PAGE_ICON } from './constant';
+import Certificate from './components/Certificate';
 function App() {
   return (
     <Router>
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route exact path="/life/exam">
             <Exam examType="life" />
+          </Route>
+          <Route exact path="/general/certificate">
+            <Certificate examType="general" />
           </Route>
         </Switch>
       </div>
