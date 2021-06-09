@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import Header from '../Header';
 import Title from '../Title';
@@ -8,7 +8,8 @@ import Foot from '../Foot';
 import { TITLES, PAGE_ICON } from '../../constant';
 import { lifeQuestions, generalQuestions } from '../../assets';
 import './index.scss';
-
+import { saveExamStatus } from '../../services/saveExamStatus';
+import { AffiliateContext } from '../../contexts/AffiliateContext';
 export default function Exam(props) {
 
     const { examType } = props;
@@ -19,7 +20,15 @@ export default function Exam(props) {
     const [open, setOpen] = useState(false);
     const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState(defaultQuestions);
+    const {affiliateDetails} = useContext(AffiliateContext);
+    useEffect(() => {
+        if(open && score / Object.keys(questions).length >= 11 / 30){
+            saveExamStatus(affiliateDetails.AffiliateId,affiliateDetails.CourseId,score).then(data => {
+                console.log("value of certificateData", data);
+              });
+        }
 
+    },[open,score,questions,affiliateDetails])
 
     const handleClose = () => {
         setOpen(false);
