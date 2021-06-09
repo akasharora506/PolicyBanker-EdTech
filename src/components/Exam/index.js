@@ -44,7 +44,6 @@ export default function Exam(props) {
     };
 
     const handleFinishExam = (exam) => {
-        console.log(exam);
         setScore(calculateScore());
         setOpen(true);
     };
