@@ -1,8 +1,8 @@
-export function validateCertificate(affiliateId, examType) {
+export function validateCertificate(affiliateId, course_id) {
   return fetch(
-    "http://localhost:9000/api/getStatus?affiliateid=" +
+    "http://localhost:5000/api/result?aff_id=" +
       affiliateId +
-      "&examType=" +
-      examType
+      "&course_id=" +
+      course_id
   ).then(data => data.json());
 }

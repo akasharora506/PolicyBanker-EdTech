@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState , useContext } from "react";
 import "./index.scss";
 import { downloadCertificate } from "../../services/downloadCertificate";
 import Pdf from "react-to-pdf";
-
+import { AffiliateContext } from '../../contexts/AffiliateContext';
 export default function Certificate(props) {
   const ref = React.createRef();
   const [certificateData, setCertificateData] = useState(null);
+  const {affiliateDetails} = useContext(AffiliateContext);
   useEffect(() => {
     if (!certificateData)
-      downloadCertificate("7745").then(data => {
+      downloadCertificate(affiliateDetails.AffiliateId).then(data => {
         setCertificateData(data);
         console.log("value of certificateData", certificateData);
       });
-  }, [certificateData]);
+  }, [certificateData,affiliateDetails]);
   if (!certificateData) return 'Please Wait!';
   return (
     //eslint-disable-next-line

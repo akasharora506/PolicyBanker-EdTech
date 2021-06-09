@@ -1,17 +1,18 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './index.scss';
 import { TITLES } from '../../constant';
 import { validateCertificate } from '../../services/validateCertificate';
-
+import { AffiliateContext } from '../../contexts/AffiliateContext';
 export default function Title(props) {
     const { title, displayIcon, showDownload } = props;
-
+    const {affiliateDetails} = useContext(AffiliateContext);
     const download = () => {
         debugger
-        validateCertificate('1','GI').then(data => {
+        console.log("affiliateDetails : ",affiliateDetails);
+        validateCertificate(affiliateDetails.AffiliateId,affiliateDetails.CourseId).then(data => {
             if(data && data.status){
                 window.open('/general/certificate', "_blank");
             }
