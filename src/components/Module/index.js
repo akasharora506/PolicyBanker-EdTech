@@ -19,7 +19,7 @@ export default function Module(props) {
     setExpanded(isExpanded ? panel : false);
   };
 
-  const handleExpire = courseId => {
+  const handleExpire = (courseId) => {
     const newModuleMaterial = moduleMaterial;
     newModuleMaterial[courseId].completeEnabled = true;
     newModuleMaterial[courseId].timeLeft = 0;

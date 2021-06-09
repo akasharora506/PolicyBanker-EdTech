@@ -5,6 +5,7 @@ import Title from '../Title';
 import Question from '../Question';
 import Modal from '../Modal';
 import Foot from '../Foot';
+import Timer from '../Timer';
 import { TITLES, PAGE_ICON } from '../../constant';
 import { lifeQuestions, generalQuestions } from '../../assets';
 import './index.scss';
@@ -42,7 +43,8 @@ export default function Exam(props) {
         setQuestions(newQuestions);
     };
 
-    const handleFinishExam = () => {
+    const handleFinishExam = (exam) => {
+        console.log(exam);
         setScore(calculateScore());
         setOpen(true);
     };
@@ -64,11 +66,23 @@ export default function Exam(props) {
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };
-
+    const getExpiryTime = () => {
+        const expiryTime = new Date();
+        expiryTime.setSeconds(expiryTime.getSeconds() + 45 * 60);
+        return expiryTime;
+    };
     return (
         <div>
             <Header />
             <Title title={TITLES[examType + "exam"]} displayIcon={PAGE_ICON["exam"]} />
+            <Timer
+                expiryTimestamp={getExpiryTime()}
+                courseId={examType}
+                handleExpire={handleFinishExam}
+                expanded={true}
+                panelName={true}
+                className="exam-timer"
+            />
             <Modal
                 open={open}
                 handleClose={handleClose}

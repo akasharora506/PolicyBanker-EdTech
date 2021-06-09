@@ -10,7 +10,6 @@ export default function Timer(props) {
         pause,
         resume,
     } = useTimer({ expiryTimestamp, onExpire: () => handleExpire(courseId) });
-
     useEffect(() => {
         if (expanded === panelName) {
             resume();
