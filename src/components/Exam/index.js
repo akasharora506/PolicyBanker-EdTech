@@ -11,29 +11,31 @@ import { lifeQuestions, generalQuestions } from '../../assets';
 import './index.scss';
 import { saveExamStatus } from '../../services/saveExamStatus';
 import { AffiliateContext } from '../../contexts/AffiliateContext';
+import { useHistory } from 'react-router-dom';
 export default function Exam(props) {
 
     const { examType } = props;
 
     const defaultQuestions = examType === 'general' ? { ...generalQuestions } : { ...lifeQuestions };
-
+    const history = useHistory();
     const [expanded, setExpanded] = useState(false);
     const [open, setOpen] = useState(false);
     const [score, setScore] = useState(0);
     const [questions, setQuestions] = useState(defaultQuestions);
-    const {affiliateDetails} = useContext(AffiliateContext);
+    const { affiliateDetails } = useContext(AffiliateContext);
     useEffect(() => {
-        if(open && score / Object.keys(questions).length >= 11 / 30){
-            saveExamStatus(affiliateDetails.AffiliateId,affiliateDetails.CourseId,score).then(data => {
+        if (open && score / Object.keys(questions).length >= 11 / 30) {
+            saveExamStatus(affiliateDetails.AffiliateId, affiliateDetails.CourseId, score).then(data => {
                 console.log("value of certificateData", data);
-              });
+            });
         }
 
-    },[open,score,questions,affiliateDetails])
+    }, [open, score, questions, affiliateDetails])
 
     const handleClose = () => {
         setOpen(false);
         resetQuestion();
+        history.push('/');
     };
     const calculateScore = () => {
         let ans = 0;
