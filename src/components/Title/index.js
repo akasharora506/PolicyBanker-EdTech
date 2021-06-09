@@ -1,24 +1,24 @@
-import React,{useContext} from 'react';
+import React, { useContext } from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './index.scss';
-import { TITLES } from '../../constant';
+import { TITLES, EXAM_NUMBER } from '../../constant';
 import { validateCertificate } from '../../services/validateCertificate';
 import { AffiliateContext } from '../../contexts/AffiliateContext';
 export default function Title(props) {
-    const { title, displayIcon, showDownload } = props;
-    const {affiliateDetails} = useContext(AffiliateContext);
+    const { title, displayIcon, showDownload, examType } = props;
+    const { affiliateDetails } = useContext(AffiliateContext);
     const download = () => {
         debugger
-        console.log("affiliateDetails : ",affiliateDetails);
-        validateCertificate(affiliateDetails.AffiliateId,affiliateDetails.CourseId).then(data => {
-            if(data && data.status){
+        console.log("affiliateDetails : ", affiliateDetails);
+        validateCertificate(affiliateDetails.AffiliateId, EXAM_NUMBER[examType]).then(data => {
+            if (data && data.status) {
                 window.open('/general/certificate', "_blank");
             }
-          }).catch((err) => {
-              console.log('Error occured : validation Failed')
-          });
+        }).catch((err) => {
+            console.log('Error occured : validation Failed')
+        });
     };
     return (
         <div className="title-bar">

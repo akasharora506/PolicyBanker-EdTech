@@ -19,4 +19,9 @@ const PAGE_ICON = {
     'life': openCourseIcon,
     'exam': examIcon
 }
-export { TITLES, SUBTITLES, PAGE_ICON };
+
+const EXAM_NUMBER = {
+    'life': 1,
+    'general': 2,
+}
+export { TITLES, SUBTITLES, PAGE_ICON, EXAM_NUMBER };
