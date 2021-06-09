@@ -10,8 +10,8 @@ import { lifeMaterial, generalMaterial } from "./material";
 export default function Module(props) {
   const history = useHistory();
   const location = useLocation();
-  const DefaultMaterial =
-    props.examType === "general" ? [...generalMaterial] : [...lifeMaterial];
+  const { examType } = props;
+  const DefaultMaterial = examType === "general" ? [...generalMaterial] : [...lifeMaterial];
   const [expanded, setExpanded] = useState(false);
   const [moduleMaterial, setModuleMaterial] = useState(DefaultMaterial);
 
@@ -40,7 +40,6 @@ export default function Module(props) {
     history.push(`${pathname}/exam`);
   };
   const examDisabled = () => {
-    debugger;
     let flag = false;
     moduleMaterial.forEach(item => {
       if (item.completed === false) flag = true;
@@ -74,10 +73,10 @@ export default function Module(props) {
               displayEnabled={content.displayEnabled}
               handleExpire={handleExpire}
               courseId={courseId}
-              timeLeft={content.timeLeft}
               key={courseId}
               handleComplete={handleComplete}
               completed={content.completed}
+              examType={examType}
             />
           ))}
         </div>

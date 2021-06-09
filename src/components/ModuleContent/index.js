@@ -8,15 +8,32 @@ import { AccordionActions, Avatar, Button, Divider } from '@material-ui/core';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 import Timer from '../Timer';
 import './index.scss';
+import { AffiliateContext } from '../../contexts/AffiliateContext';
+import { useContext } from 'react';
+import { getTimeRemaining } from '../../services/getTimeRemaining';
+import { EXAM_NUMBER } from '../../constant';
+import { Date } from 'globalthis/implementation';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 export default function ModuleContent(props) {
 
     const { panelName, expanded, handleChange, courseContent,
         completeEnabled, displayEnabled, handleExpire, courseId,
-        timeLeft, completed, handleComplete } = props;
+        examType, handleComplete } = props;
+    const { affiliateDetails: { AffiliateId } } = useContext(AffiliateContext);
+    const [expiryTime, setExpiryTime] = useState(new Date());
+    const [completed, setCompleted] = useState(false);
+    useEffect(() => {
+        await getTimeRemaining(AffiliateId, EXAM_NUMBER[examType], courseId + 1).then((data) => {
+            const newExpiryTime = new Date();
+            newExpiryTime.setSeconds(newExpiryTime.getSeconds() + data.time);
+            console.log(newExpiryTime);
+            setExpiryTime(newExpiryTime);
+            setCompleted(data.completed);
+        });
 
-    const time = new Date();
-    time.setSeconds(time.getSeconds() + timeLeft);
+    }, []);
 
     return (
         <Accordion disabled={!displayEnabled} expanded={expanded === panelName} onChange={handleChange(panelName)}>
@@ -33,7 +50,7 @@ export default function ModuleContent(props) {
                 }
                 <Typography className="accordian-heading">{`Chapter ${courseId + 1}`}</Typography>
                 <Timer
-                    expiryTimestamp={time}
+                    expiryTimestamp={expiryTime}
                     expanded={expanded}
                     panelName={panelName}
                     handleExpire={handleExpire}
